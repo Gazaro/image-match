@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -eo
 
 MAJOR=2
 MINOR=0
@@ -7,7 +7,7 @@ PATCH=0
 rm -f image-match-*.tar.gz
 pip download --no-deps --extra-index-url https://pypi.fury.io/UmFoYTJTNACus1W8zjP8/360core/ image-match
 
-DOWNLOADED_FILE=`ls image-match-${MAJOR}.${MINOR}.*.gz`
+#DOWNLOADED_FILE=`ls image-match-${MAJOR}.${MINOR}.*.gz`
 if [ ${DOWNLOADED_FILE} ]; then
     DOWNLOADED_FILE=${DOWNLOADED_FILE/image-match-${MAJOR}.${MINOR}./}
     DOWNLOADED_FILE=${DOWNLOADED_FILE/.tar.gz/}

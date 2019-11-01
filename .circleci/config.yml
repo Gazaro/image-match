@@ -20,7 +20,7 @@ jobs:
           command: pip install -e .[test]
       - run:
           name: Test
-          command: pytest tests
+          command: pytest
   deploy:
     docker:
       - image: docker:18.06.1-git
@@ -30,9 +30,14 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
+          name: Install cli tools
+          command: |
+            apk --update add py-pip
+            pip install --upgrade pip
+      - run:
           name: Build and push pip package
           command: |
-            circle/build_pip_package.sh
+            source circle/build_pip_package.sh
 workflows:
   version: 2
   test_deploy:
