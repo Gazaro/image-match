@@ -46,9 +46,9 @@ workflows:
           context: 360platform
       - deploy:
           context: 360platform
-#          filters:
-#            branches:
-#              only:
-#                - master
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - test
