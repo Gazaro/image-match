@@ -23,7 +23,7 @@ PYTHONPATH=. python setup.py sdist
 PACKAGENAME=dist/image-match-${MAJOR}.${MINOR}.${PATCH}.tar.gz
 
 exec 3>&1
-STATUS=$(curl -w "%{http_code}" -o >(cat >&3) -s -F package=@${PACKAGENAME} https://UmFoYTJTNACus1W8zjP8@push.fury.io/360core/)
+STATUS=$(curl -w "%{http_code}" -o /dev/null -s -F package=@${PACKAGENAME} https://UmFoYTJTNACus1W8zjP8@push.fury.io/360core/)
 
 if [ ${STATUS} != 200 ]
 then
